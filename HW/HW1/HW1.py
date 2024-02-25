@@ -4,7 +4,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df = pd.read_csv(r"C:/users/nickd/cs513/breast-cancer-wisconsin.csv")
+df = pd.read_csv(r"C:/users/nickd/cs513/HW/HW1/breast-cancer-wisconsin.csv")
 
 #Summarizes the columns
 print("\n")
@@ -41,7 +41,7 @@ plt.title("Histogram Box Plot of F7 to F9")
 plt.show()
 
 #Reloads the data
-df = pd.read_csv(r"C:/users/nickd/cs513/breast-cancer-wisconsin.csv")
+df = pd.read_csv(r"C:/users/nickd/cs513/HW/HW1/breast-cancer-wisconsin.csv")
 
 #Removes any rows without values
 df.dropna(inplace=True)
