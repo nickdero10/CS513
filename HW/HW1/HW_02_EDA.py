@@ -3,8 +3,6 @@
 #I Pledge my Honor That I have Abided by the Stevens Honor System
 #CWID: 20006069
 
-
-
 import pandas as pd
 import matplotlib.pyplot as plt
 
