@@ -28,9 +28,6 @@ numeric_columns = df.select_dtypes(include='number').columns
 df[numeric_columns] = df[numeric_columns].fillna(df[numeric_columns].mean())
 df = df.round(2)
 
-print("\n")
-print(df.isna().sum())
-
 # Class Vs. F6 Table
 table = pd.crosstab(df['Class'], df['F6'])
 print("\n")
