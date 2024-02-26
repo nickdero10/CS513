@@ -4,7 +4,7 @@
 ---
 
 ## Code Output
-![Image](/Images/HW1.png)
+![Image](/Images/HW2.png)
 
 ---
 
