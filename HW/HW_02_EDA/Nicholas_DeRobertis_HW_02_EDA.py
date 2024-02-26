@@ -20,10 +20,16 @@ print("\n")
 print("Number of Appearances of ? in the Data")
 print(df.isna().sum())
 
+# Convert F6 Column to numeric
+df['F6'] = pd.to_numeric(df['F6'], errors = 'coerce')
+
 # Fills in missing values with the mean of the column
 numeric_columns = df.select_dtypes(include='number').columns
 df[numeric_columns] = df[numeric_columns].fillna(df[numeric_columns].mean())
 df = df.round(2)
+
+print("\n")
+print(df.isna().sum())
 
 # Class Vs. F6 Table
 table = pd.crosstab(df['Class'], df['F6'])
