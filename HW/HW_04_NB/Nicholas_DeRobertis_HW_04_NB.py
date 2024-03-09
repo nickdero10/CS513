@@ -55,3 +55,7 @@ print("\nConfusion Matrix:")
 print(conf_matrix)
 accuracy = accuracy_score(Y_test, Y_pred) * 100
 print("\nAccuracy:", accuracy)
+
+# Recources:
+# Naïve Bayes method used in python using scikit https://scikit-learn.org/stable/modules/naive_bayes.html 
+# ChatGPT
