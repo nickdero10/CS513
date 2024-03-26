@@ -1,5 +1,7 @@
-# Nicholas DeRobertis
 # Midterm Question 2
+# Nicholas DeRobertis
+# I Pledge my Honor That I have Abided by the Stevens Honor System
+# CWID: 20006069
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -9,7 +11,6 @@ df = pd.read_csv(r"C:/users/nickd/CS513/Midterm/Admission_v2_missing.csv")
 # Summarizes the columns
 print("\n")
 print("Admission Data Summarized")
-print("\n")
 print(df.describe())
 
 # Replaces any blank space with NA and counts how many NA are in the data

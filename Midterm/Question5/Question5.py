@@ -1,5 +1,7 @@
-# Nicholas DeRobertis
 # Midterm Question 5
+# Nicholas DeRobertis
+# I Pledge my Honor That I have Abided by the Stevens Honor System
+# CWID: 20006069
 
 import pandas as pd
 import numpy as np

@@ -1,5 +1,7 @@
-# Nicholas DeRobertis
 # Midterm Question 4
+# Nicholas DeRobertis
+# I Pledge my Honor That I have Abided by the Stevens Honor System
+# CWID: 20006069
 
 import pandas as pd
 import numpy as np
@@ -13,6 +15,29 @@ df = pd.read_csv(r"C:/users/nickd/CS513/Midterm/Admission_v2.csv")
 # Replaces any blank spaces with NaN and removes any rows without values
 df.replace(' ', np.nan, inplace=True)
 df.dropna(inplace=True)
+
+# Define the mapping dictionary for GRE
+GRE_map = {
+    'Up to 500 Inclusive': lambda x: x <= 500,
+    'Above 500 and up to 600': lambda x: 500 < x <= 600,
+    'Above 600 and up to 700': lambda x: 600 < x <= 700,
+    'Above 700': lambda x: x > 700
+}
+
+# Apply the mapping for GRE using map function
+df['GRE'] = df['GRE'].map(lambda x: next((key for key, condition in GRE_map.items() if condition(x)), 'Unknown'))
+
+# Define the mapping dictionary for GPA
+GPA_map = {
+    'Up to 2.5 Inclusive': lambda x: x <= 2.5,
+    'Above 2.5 and up to 3': lambda x: 2.5 < x <= 3,
+    'Above 3 and up to 3.5': lambda x: 3 < x <= 3.5,
+    'Above 3.5': lambda x: x > 3.5
+}
+
+# Apply the mapping for GPA using map function
+df['GPA'] = df['GPA'].map(lambda x: next((key for key, condition in GPA_map.items() if condition(x)), 'Unknown'))
+print(df)
 
 # Create X and Y Axes
 X = df.drop(['GRE', 'GPA','ADMIT'], axis=1)
@@ -41,35 +66,3 @@ print("\nConfusion Matrix:")
 print(conf_matrix)
 accuracy = accuracy_score(Y_test, Y_pred) * 100
 print("\nAccuracy:", accuracy, '\n')
-
-# Define the bins for discretization
-bins = [0, 500, 600, 700, float('inf')]  
-labels = ["Up to 500 inclusive", "Above 500 and up to 600", 
-            "Above 600 and up to 700", "Above 700"]
-
-# Discretize the 'GRE' scores using pd.cut()
-df['GRE Category'] = pd.cut(df['GRE'], bins=bins, labels=labels, right=False)
-
-gpa_bins = [0, 2.5, 3, 3.5, float('inf')]
-gpa_labels = ["Up to 2.5 inclusive", "Above 2.5 and up to 3",
-                "Above 3 and up to 3.5", "Over 3.5"]
-
-# Discretize the 'GPA' scores using pd.cut()
-df['GPA Category'] = pd.cut(df['GPA'], bins=gpa_bins, labels=gpa_labels, right=False)
-
-# Display the first few rows of the dataframe to verify the changes
-print(df)
-
-# Count the number of entries in each GPA category
-gre_counts = df['GRE Category'].value_counts()
-
-# Display the counts
-print("Counts of entries in each GRE category:")
-print(gre_counts, '\n')
-
-# Count the number of entries in each GPA category
-gpa_counts = df['GPA Category'].value_counts()
-
-# Display the counts
-print("Counts of entries in each GPA category:")
-print(gpa_counts)
